@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using System;
 
 namespace Service.Controllers
 {
@@ -7,6 +8,6 @@ namespace Service.Controllers
     {
         // GET api/values
         [HttpGet]
-        public string Get() => "From Service";
+        public string Get() => DateTime.Now.ToString();
     }
 }
