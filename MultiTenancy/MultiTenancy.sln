@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.26730.16
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gateway", "Gateway\Gateway.csproj", "{9AA552A0-F4EE-42FA-808F-8CDD21316987}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Microsoft.AspNetCore.Proxy", "Microsoft.AspNetCore.Proxy\Microsoft.AspNetCore.Proxy.csproj", "{3199B471-F6EE-4CE8-97C8-932006EB8B1D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{9AA552A0-F4EE-42FA-808F-8CDD21316987}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9AA552A0-F4EE-42FA-808F-8CDD21316987}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9AA552A0-F4EE-42FA-808F-8CDD21316987}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3199B471-F6EE-4CE8-97C8-932006EB8B1D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3199B471-F6EE-4CE8-97C8-932006EB8B1D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3199B471-F6EE-4CE8-97C8-932006EB8B1D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3199B471-F6EE-4CE8-97C8-932006EB8B1D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
