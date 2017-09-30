@@ -16,7 +16,7 @@ namespace Gateway
                 .UseStartup<Startup>()
                 .UseKestrel(options =>
                 {
-                    options.Listen(IPAddress.Loopback, 44321, listenOptions =>
+                    options.Listen(IPAddress.Loopback, 44302, listenOptions =>
                     {
                         listenOptions.UseHttps("testCert.pfx", "testPassword");
                     });
