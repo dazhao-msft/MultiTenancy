@@ -13,9 +13,6 @@ namespace Gateway.Controllers
         // GET api/values
         [HttpGet]
         [AllowAnonymous]
-        public Task Get()
-        {
-            return HttpContext.ProxyRequest(new Uri("http://localhost:44303/api/values"));
-        }
+        public Task Get() => HttpContext.ProxyRequest(new Uri("http://localhost:44303/api/values"));
     }
 }

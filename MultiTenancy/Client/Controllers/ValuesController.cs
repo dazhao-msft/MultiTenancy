@@ -1,5 +1,7 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Mvc;
 using System;
+using System.Threading.Tasks;
 
 namespace Client.Controllers
 {
@@ -8,6 +10,6 @@ namespace Client.Controllers
     {
         // GET api/values
         [HttpGet]
-        public string Get() => $"From Client: {DateTime.Now}";
+        public Task Get() => HttpContext.ProxyRequest(new Uri("https://localhost:44302/api/values"));
     }
 }

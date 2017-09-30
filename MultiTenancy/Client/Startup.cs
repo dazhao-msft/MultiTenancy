@@ -2,6 +2,8 @@
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using System.Net.Http;
+using System.Threading.Tasks;
 
 namespace Client
 {
@@ -18,6 +20,22 @@ namespace Client
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
+
+            services.AddProxy(options =>
+            {
+                options.PrepareRequest = (request, message) =>
+                {
+                    message.Headers.Add("X-Forwarded-Host", request.Host.Host);
+                    return Task.CompletedTask;
+                };
+
+                options.MessageHandler = new HttpClientHandler()
+                {
+                    AllowAutoRedirect = false,
+                    UseCookies = false,
+                    ServerCertificateCustomValidationCallback = HttpClientHandler.DangerousAcceptAnyServerCertificateValidator
+                };
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
