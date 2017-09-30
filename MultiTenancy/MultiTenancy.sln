@@ -13,12 +13,18 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AspNetCore", "AspNetCore", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Microsoft.AspNetCore.Proxy", "Microsoft.AspNetCore.Proxy\Microsoft.AspNetCore.Proxy.csproj", "{3199B471-F6EE-4CE8-97C8-932006EB8B1D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AadConfiguration", "AadConfiguration\AadConfiguration.csproj", "{45B16DE3-4D35-40A2-B5BD-0AF2386EF7C2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DF68DCCB-2360-43B0-B4BD-B799402E6A8C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DF68DCCB-2360-43B0-B4BD-B799402E6A8C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DF68DCCB-2360-43B0-B4BD-B799402E6A8C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DF68DCCB-2360-43B0-B4BD-B799402E6A8C}.Release|Any CPU.Build.0 = Release|Any CPU
 		{9AA552A0-F4EE-42FA-808F-8CDD21316987}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{9AA552A0-F4EE-42FA-808F-8CDD21316987}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9AA552A0-F4EE-42FA-808F-8CDD21316987}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -31,10 +37,10 @@ Global
 		{3199B471-F6EE-4CE8-97C8-932006EB8B1D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3199B471-F6EE-4CE8-97C8-932006EB8B1D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3199B471-F6EE-4CE8-97C8-932006EB8B1D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{DF68DCCB-2360-43B0-B4BD-B799402E6A8C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{DF68DCCB-2360-43B0-B4BD-B799402E6A8C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{DF68DCCB-2360-43B0-B4BD-B799402E6A8C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{DF68DCCB-2360-43B0-B4BD-B799402E6A8C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{45B16DE3-4D35-40A2-B5BD-0AF2386EF7C2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{45B16DE3-4D35-40A2-B5BD-0AF2386EF7C2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{45B16DE3-4D35-40A2-B5BD-0AF2386EF7C2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{45B16DE3-4D35-40A2-B5BD-0AF2386EF7C2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

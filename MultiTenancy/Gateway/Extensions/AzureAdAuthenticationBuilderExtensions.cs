@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Authentication.JwtBearer;
+﻿using AadConfiguration;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
 using System;
@@ -10,7 +11,7 @@ namespace Microsoft.AspNetCore.Authentication
         public static AuthenticationBuilder AddAzureAdBearer(this AuthenticationBuilder builder)
             => builder.AddAzureAdBearer(_ => { });
 
-        public static AuthenticationBuilder AddAzureAdBearer(this AuthenticationBuilder builder, Action<AzureAdOptions> configureOptions)
+        public static AuthenticationBuilder AddAzureAdBearer(this AuthenticationBuilder builder, Action<AadOptions> configureOptions)
         {
             builder.Services.Configure(configureOptions);
             builder.Services.AddSingleton<IConfigureOptions<JwtBearerOptions>, ConfigureAzureOptions>();
@@ -20,9 +21,9 @@ namespace Microsoft.AspNetCore.Authentication
 
         private class ConfigureAzureOptions : IConfigureNamedOptions<JwtBearerOptions>
         {
-            private readonly AzureAdOptions _azureOptions;
+            private readonly AadOptions _azureOptions;
 
-            public ConfigureAzureOptions(IOptions<AzureAdOptions> azureOptions)
+            public ConfigureAzureOptions(IOptions<AadOptions> azureOptions)
             {
                 _azureOptions = azureOptions.Value;
             }

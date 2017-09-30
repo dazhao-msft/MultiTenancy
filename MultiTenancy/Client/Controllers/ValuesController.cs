@@ -1,5 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Configuration;
+﻿using AadConfiguration;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Clients.ActiveDirectory;
 using System;
 using System.Net.Http;
@@ -11,23 +11,19 @@ namespace Client.Controllers
     [Route("api/[controller]")]
     public class ValuesController : Controller
     {
-        private readonly AzureAdOptions _azureAdOptions;
-
-        public ValuesController(IConfiguration configuration)
-        {
-            _azureAdOptions = new AzureAdOptions();
-            configuration.Bind("AzureAd", _azureAdOptions);
-        }
-
         // GET api/values
         [HttpGet]
         public async Task<string> Get()
         {
+            // CciWebApi
             const string GatewayUrl = "https://localhost:44302/api/values";
-            const string GatewayResourceUri = "https://microsoft.onmicrosoft.com/a68d25f1-1e2b-4d4f-b503-ca1ae5525277";
+            const string GatewayResourceUri = "https://microsoft.onmicrosoft.com/66e86ee1-26e2-4ed6-a37f-be28838e3765";
 
-            var authenticationContext = new AuthenticationContext($"{ _azureAdOptions.Instance }{ _azureAdOptions.TenantId}");
-            var clientCredential = new ClientCredential(_azureAdOptions.AppId, _azureAdOptions.AppSecret);
+            var aadOptions = new AadOptions();
+            new AadOptionsBuilder().Bind("CciWebApp", aadOptions);
+
+            var authenticationContext = new AuthenticationContext($"{ aadOptions.Instance }{ aadOptions.TenantId}");
+            var clientCredential = new ClientCredential(aadOptions.AppId, aadOptions.AppSecret);
 
             var result = await authenticationContext.AcquireTokenAsync(GatewayResourceUri, clientCredential);
 
@@ -49,15 +45,6 @@ namespace Client.Controllers
 
                 return await response.Content.ReadAsStringAsync();
             }
-        }
-
-        public class AzureAdOptions
-        {
-            public string AppId { get; set; }
-            public string AppSecret { get; set; }
-            public string Instance { get; set; }
-            public string Domain { get; set; }
-            public string TenantId { get; set; }
         }
     }
 }

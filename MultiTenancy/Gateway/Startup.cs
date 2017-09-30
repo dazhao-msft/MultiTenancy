@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Authentication;
+﻿using AadConfiguration;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -24,7 +25,7 @@ namespace Gateway
             {
                 options.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
             })
-            .AddAzureAdBearer(options => Configuration.Bind("AzureAd", options));
+            .AddAzureAdBearer(options => new AadOptionsBuilder().Bind("CciWebApi", options));
 
             services.AddMvc();
 
