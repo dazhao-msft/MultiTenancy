@@ -1,13 +1,13 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System;
 
-namespace Service.Controllers
+namespace Client.Controllers
 {
     [Route("api/[controller]")]
     public class ValuesController : Controller
     {
         // GET api/values
         [HttpGet]
-        public string Get() => $"From Service: {DateTime.Now}";
+        public string Get() => $"From Client: {DateTime.Now}";
     }
 }
