@@ -30,7 +30,7 @@ namespace Microsoft.AspNetCore.Authentication
 
             public void Configure(string name, JwtBearerOptions options)
             {
-                options.Audience = _azureOptions.AppId;
+                options.Audience = _azureOptions.Audience;
                 options.Authority = $"{_azureOptions.Instance}{_azureOptions.TenantId}";
             }
 

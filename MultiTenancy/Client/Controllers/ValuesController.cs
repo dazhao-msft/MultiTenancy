@@ -15,17 +15,18 @@ namespace Client.Controllers
         [HttpGet]
         public async Task<string> Get()
         {
-            // CciWebApi
+            // Gateway
             const string GatewayUrl = "https://localhost:44302/api/values";
-            const string GatewayResourceUri = "https://microsoft.onmicrosoft.com/66e86ee1-26e2-4ed6-a37f-be28838e3765";
+            var gatewayOptions = new AadOptions();
+            new AadOptionsBuilder().Bind("Gateway", gatewayOptions);
 
-            var aadOptions = new AadOptions();
-            new AadOptionsBuilder().Bind("CciWebApp", aadOptions);
+            var clientOptions = new AadOptions();
+            new AadOptionsBuilder().Bind("Client", clientOptions);
 
-            var authenticationContext = new AuthenticationContext($"{ aadOptions.Instance }{ aadOptions.TenantId}");
-            var clientCredential = new ClientCredential(aadOptions.AppId, aadOptions.AppSecret);
+            var authenticationContext = new AuthenticationContext($"{clientOptions.Instance}{clientOptions.TenantId}");
+            var clientCredential = new ClientCredential(clientOptions.AppId, clientOptions.AppSecret);
 
-            var result = await authenticationContext.AcquireTokenAsync(GatewayResourceUri, clientCredential);
+            var result = await authenticationContext.AcquireTokenAsync(gatewayOptions.Audience, clientCredential);
 
             var clientHandler = new HttpClientHandler()
             {

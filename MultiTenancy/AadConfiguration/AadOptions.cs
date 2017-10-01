@@ -2,6 +2,8 @@
 {
     public class AadOptions
     {
+        public string Audience { get; set; }
+
         public string AppId { get; set; }
 
         public string AppSecret { get; set; }

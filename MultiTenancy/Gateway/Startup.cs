@@ -25,7 +25,7 @@ namespace Gateway
             {
                 options.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
             })
-            .AddAzureAdBearer(options => new AadOptionsBuilder().Bind("CciWebApi", options));
+            .AddAzureAdBearer(options => new AadOptionsBuilder().Bind("Gateway", options));
 
             services.AddMvc();
 
