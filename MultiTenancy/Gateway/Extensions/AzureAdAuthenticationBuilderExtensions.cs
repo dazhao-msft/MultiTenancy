@@ -2,7 +2,6 @@
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
-using Microsoft.IdentityModel.Tokens;
 using System;
 
 namespace Microsoft.AspNetCore.Authentication
@@ -36,13 +35,12 @@ namespace Microsoft.AspNetCore.Authentication
 
                 //
                 // TODO:
-                // The tokens are issued by different tenants than the one of gateway.
-                // Investigate what the canonical approach is.
+                // In multi-tenant scenarions, tokens can be issued by different tenants than the one of gateway.
+                // Apply the custom logic to validate the security token:
+                // https://github.com/Azure-Samples/active-directory-dotnet-webapp-multitenant-openidconnect/blob/master/TodoListWebApp/App_Start/Startup.Auth.cs#L55
                 //
-                options.TokenValidationParameters = new TokenValidationParameters()
-                {
-                    ValidateIssuer = false
-                };
+
+                options.TokenValidationParameters.ValidateIssuer = false;
             }
 
             public void Configure(JwtBearerOptions options)
