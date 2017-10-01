@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
+using Microsoft.IdentityModel.Tokens;
 using System;
 
 namespace Microsoft.AspNetCore.Authentication
@@ -32,6 +33,16 @@ namespace Microsoft.AspNetCore.Authentication
             {
                 options.Audience = _azureOptions.Audience;
                 options.Authority = $"{_azureOptions.Instance}{_azureOptions.TenantId}";
+
+                //
+                // TODO:
+                // The tokens are issued by different tenants than the one of gateway.
+                // Investigate what the canonical approach is.
+                //
+                options.TokenValidationParameters = new TokenValidationParameters()
+                {
+                    ValidateIssuer = false
+                };
             }
 
             public void Configure(JwtBearerOptions options)
