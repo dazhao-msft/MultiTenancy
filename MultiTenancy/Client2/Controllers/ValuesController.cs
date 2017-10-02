@@ -6,7 +6,7 @@ using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Threading.Tasks;
 
-namespace Client.Controllers
+namespace Client2.Controllers
 {
     [Route("api/[controller]")]
     public class ValuesController : Controller
@@ -21,7 +21,7 @@ namespace Client.Controllers
             new AadOptionsBuilder().Bind("Gateway", gatewayOptions);
 
             var clientOptions = new AadOptions();
-            new AadOptionsBuilder().Bind("Client", clientOptions);
+            new AadOptionsBuilder().Bind("Client2", clientOptions);
 
             var authenticationContext = new AuthenticationContext($"{clientOptions.Instance}{clientOptions.TenantId}");
             var clientCredential = new ClientCredential(clientOptions.AppId, clientOptions.AppSecret);

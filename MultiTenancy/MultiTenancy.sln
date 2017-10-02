@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.26730.16
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Client", "Client\Client.csproj", "{DF68DCCB-2360-43B0-B4BD-B799402E6A8C}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Client2", "Client2\Client2.csproj", "{F4C6B531-A07E-4FCA-AC3E-F152C2B61FEB}"
+EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Gateway", "Gateway\Gateway.csproj", "{9AA552A0-F4EE-42FA-808F-8CDD21316987}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Service", "Service\Service.csproj", "{710EBD76-05E8-47DE-97E4-85BDB4460773}"
@@ -13,7 +15,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AspNetCore", "AspNetCore", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Microsoft.AspNetCore.Proxy", "Microsoft.AspNetCore.Proxy\Microsoft.AspNetCore.Proxy.csproj", "{3199B471-F6EE-4CE8-97C8-932006EB8B1D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AadConfiguration", "AadConfiguration\AadConfiguration.csproj", "{45B16DE3-4D35-40A2-B5BD-0AF2386EF7C2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AadConfiguration", "AadConfiguration\AadConfiguration.csproj", "{45B16DE3-4D35-40A2-B5BD-0AF2386EF7C2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -41,6 +43,10 @@ Global
 		{45B16DE3-4D35-40A2-B5BD-0AF2386EF7C2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{45B16DE3-4D35-40A2-B5BD-0AF2386EF7C2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{45B16DE3-4D35-40A2-B5BD-0AF2386EF7C2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F4C6B531-A07E-4FCA-AC3E-F152C2B61FEB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F4C6B531-A07E-4FCA-AC3E-F152C2B61FEB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F4C6B531-A07E-4FCA-AC3E-F152C2B61FEB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F4C6B531-A07E-4FCA-AC3E-F152C2B61FEB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
