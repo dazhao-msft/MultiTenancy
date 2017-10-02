@@ -1,5 +1,6 @@
 ﻿using AadConfiguration;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Clients.ActiveDirectory;
 using System;
 using System.Net.Http;
@@ -15,13 +16,15 @@ namespace Client2.Controllers
         [HttpGet]
         public async Task<string> Get()
         {
+            var aadConfiguration = new ConfigurationBuilder().AddJsonFile(AadOptionsDefaults.DefaultFile).Build();
+
             // Gateway
             const string GatewayUrl = "https://localhost:44302/api/values";
             var gatewayOptions = new AadOptions();
-            new AadOptionsBuilder().Bind("Gateway", gatewayOptions);
+            aadConfiguration.Bind("Gateway", gatewayOptions);
 
             var clientOptions = new AadOptions();
-            new AadOptionsBuilder().Bind("Client2", clientOptions);
+            aadConfiguration.Bind("Client2", clientOptions);
 
             var authenticationContext = new AuthenticationContext($"{clientOptions.Instance}{clientOptions.TenantId}");
             var clientCredential = new ClientCredential(clientOptions.AppId, clientOptions.AppSecret);

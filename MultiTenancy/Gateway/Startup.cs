@@ -25,7 +25,12 @@ namespace Gateway
             {
                 options.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
             })
-            .AddAzureAdBearer(options => new AadOptionsBuilder().Bind("Gateway", options));
+            .AddAzureAdBearer(options =>
+            {
+                var aadConfiguration = new ConfigurationBuilder().AddJsonFile(AadOptionsDefaults.DefaultFile).Build();
+
+                aadConfiguration.Bind("Gateway", options);
+            });
 
             services.AddMvc();
 
