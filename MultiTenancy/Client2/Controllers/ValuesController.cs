@@ -44,7 +44,7 @@ namespace Client2.Controllers
                     RequestUri = new Uri(GatewayUrl),
                     Method = HttpMethod.Get
                 };
-                request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", result.AccessToken);
+                request.Headers.Authorization = AuthenticationHeaderValue.Parse(result.CreateAuthorizationHeader());
 
                 var response = await client.SendAsync(request);
 
