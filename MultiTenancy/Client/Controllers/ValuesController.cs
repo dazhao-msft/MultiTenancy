@@ -20,11 +20,10 @@ namespace Client.Controllers
 
             // Gateway
             const string GatewayUrl = "https://localhost:44302/api/values";
-            var gatewayOptions = new AadOptions();
-            aadConfiguration.Bind("Gateway", gatewayOptions);
 
-            var clientOptions = new AadOptions();
-            aadConfiguration.Bind("Client", clientOptions);
+            var gatewayOptions = aadConfiguration.GetSection("Gateway").Get<AadOptions>();
+
+            var clientOptions = aadConfiguration.GetSection("Client").Get<AadOptions>();
 
             var authenticationContext = new AuthenticationContext($"{clientOptions.Instance}{clientOptions.TenantId}");
             var clientCredential = new ClientCredential(clientOptions.AppId, clientOptions.AppSecret);
