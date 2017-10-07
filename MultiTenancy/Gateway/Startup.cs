@@ -32,7 +32,7 @@ namespace Gateway
                 aadConfiguration.Bind("Gateway", options);
             });
 
-            services.AddMvc();
+            services.AddMvcCore();
 
             services.AddProxy(options =>
             {

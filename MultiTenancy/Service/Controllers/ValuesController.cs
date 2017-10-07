@@ -4,7 +4,7 @@ using System;
 namespace Service.Controllers
 {
     [Route("api/[controller]")]
-    public class ValuesController : Controller
+    public class ValuesController
     {
         // GET api/values
         [HttpGet]
