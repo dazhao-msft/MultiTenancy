@@ -12,14 +12,18 @@ namespace Client2.Controllers
     [Route("api/[controller]")]
     public class ValuesController
     {
+        private readonly IConfiguration _configuration;
+
+        public ValuesController(IConfiguration configuration)
+        {
+            _configuration = configuration;
+        }
+
         // GET api/values
         [HttpGet]
         public async Task<string> Get()
         {
-            var aadConfiguration = new ConfigurationBuilder().AddJsonFile(AadOptionsDefaults.DefaultFile).Build();
-
-            // Gateway
-            const string GatewayUrl = "https://localhost:44302/api/values";
+            var aadConfiguration = new ConfigurationBuilder().AddJsonFile(_configuration["AadOptionsFile"]).Build();
 
             var gatewayOptions = aadConfiguration.GetSection("Gateway").Get<AadOptions>();
 
@@ -41,7 +45,7 @@ namespace Client2.Controllers
             {
                 var request = new HttpRequestMessage
                 {
-                    RequestUri = new Uri(GatewayUrl),
+                    RequestUri = new Uri(_configuration["GatewayUrl"]),
                     Method = HttpMethod.Get
                 };
                 request.Headers.Authorization = AuthenticationHeaderValue.Parse(result.CreateAuthorizationHeader());

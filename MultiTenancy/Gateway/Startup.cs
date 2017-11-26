@@ -1,5 +1,4 @@
-﻿using AadConfiguration;
-using Microsoft.AspNetCore.Authentication;
+﻿using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -27,7 +26,7 @@ namespace Gateway
             })
             .AddAzureAdBearer(options =>
             {
-                var aadConfiguration = new ConfigurationBuilder().AddJsonFile(AadOptionsDefaults.DefaultFile).Build();
+                var aadConfiguration = new ConfigurationBuilder().AddJsonFile(Configuration["AadOptionsFile"]).Build();
 
                 aadConfiguration.Bind("Gateway", options);
             });
